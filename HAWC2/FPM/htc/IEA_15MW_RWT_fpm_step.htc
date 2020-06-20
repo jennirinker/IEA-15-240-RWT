@@ -6,7 +6,7 @@
     solvertype	1;	(newmark)
     on_no_convergence	continue;
     convergence_limits	1000 1 1e-07;
-    logfile	./log/IEA_15MW_RWT_step.log;
+    logfile	./log/IEA_15MW_RWT_FPM_step.log;
     begin newmark;
       deltat	0.01;
     end newmark;
@@ -628,7 +628,7 @@
 ;----------------------------------------------------------------------------------------------------------------------------------------------------------------
 ;
   begin output;
-    filename	./res/IEA_15MW_RWT_step;
+    filename	./res/IEA_15MW_FPM_RWT_step;
     data_format	hawc_binary;
     buffer	1;
     time	100 1139;	
@@ -646,20 +646,21 @@
 ; Moments:
     mbdy momentvec	tower 1 1 tower # tower base;
     mbdy momentvec	tower 10 2 tower # tower yaw bearing;
-    mbdy momentvec	shaft 1 1 shaft # main bearing;
-    mbdy momentvec	blade1 2 2 blade1 # blade 1 root;
-    mbdy momentvec	blade2 2 2 blade2 # blade 2 root;
-    mbdy momentvec	blade3 2 2 blade3 # blade 3 root;	
+    mbdy momentvec	shaft 1 1 shaft # main bearing moment;
+    mbdy forcevec	shaft 1 1 shaft # main bearing force;
+    mbdy momentvec	blade1 1 1 blade1 # blade 1 root;
+    mbdy momentvec	blade2 1 1 blade2 # blade 2 root;
+    mbdy momentvec	blade3 1 1 blade3 # blade 3 root;	
 ; Displacements and accellerations
     mbdy state	pos tower 10 1 global only 1 # Tower top FA displ;
     mbdy state	pos tower 10 1 global only 2 # Tower top SS displ;
     mbdy state	acc tower 10 1 global only 1 # Tower top FA acc;
     mbdy state	acc tower 10 1 global only 2 # Tower top SS acc;	
 ;
-    mbdy state	pos blade1 9 1 blade1 # blade 1 tip pos;
-    mbdy state	pos blade2 9 1 blade2 # blade 2 tip pos;
-    mbdy state	pos blade3 9 1 blade3 # blade 3 tip pos;
-    mbdy state	pos blade1 9 1 global # gl blade 1 tip pos;	
+    mbdy state	pos blade1 19 1 blade1 # blade 1 tip pos;
+    mbdy state	pos blade2 19 1 blade2 # blade 2 tip pos;
+    mbdy state	pos blade3 19 1 blade3 # blade 3 tip pos;
+    mbdy state	pos blade1 19 1 global # gl blade 1 tip pos;	
 ; - Monitor Aerodynamics - ;
     aero windspeed	3 1 1 72.5;
     aero alfa	1 72.5;
