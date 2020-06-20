@@ -1,5 +1,5 @@
 ; IEA 15 MW Reference Wind Turbine. Model update from commit "7d179ee".
-; Fully populated matrix, no torsion.
+; Classical Timoshenko, no torsion.
 ; 
 begin simulation ;
   time_stop    700.0 ;
