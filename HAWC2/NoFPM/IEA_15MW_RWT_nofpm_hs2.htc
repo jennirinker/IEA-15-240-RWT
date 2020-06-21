@@ -19,8 +19,8 @@
       end timoschenko_input;
       begin c2_def;	Definition of centerline (main_body coordinates)
         nsec	11;
-        sec	1 0 0 0 0;	x,y,z,twist
-        sec	2 0 0 -15 0;
+        sec	1 0 0 0 0;	waterline. bottom of transition piece.
+        sec	2 0 0 -15 0;	bottom of tower.
         sec	3 0 0 -30 0;
         sec	4 0 0 -45 0;
         sec	5 0 0 -60 0;
@@ -29,7 +29,7 @@
         sec	8 0 0 -105 0;
         sec	9 0 0 -120 0;
         sec	10 0 0 -135 0;
-        sec	11 0 0 -144.495 0;
+        sec	11 0 0 -144.495 0;	top of tower.
       end c2_def;
     end main_body;
 ;
